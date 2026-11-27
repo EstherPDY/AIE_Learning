@@ -7,7 +7,10 @@ authors = [
     { name = "LEVEIER", email = "daiyunpeng017@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "pydantic>=2.14.4",
+    "pydantic-settings>=2.16.3",
+]
 
 [project.scripts]
 ai-eng-lab = "ai_eng_lab:main"
@@ -21,6 +24,7 @@ dev = [
     "pre-commit>=4.7.0",
     "pyright>=1.1.414",
     "pytest>=9.2.0",
+    "pytest-cov>=7.1.0",
     "ruff>=0.17.6",
 ]
 
@@ -34,3 +38,6 @@ select = ["E", "F", "I", "B", "UP"]
 [tool.pyright]
 typeCheckingMode = "standard"
 include = ["src", "tests"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=ai_eng_lab --cov-report=term-missing"
